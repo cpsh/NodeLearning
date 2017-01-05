@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var bank = require('./src/service/bankService');
 
 var app = express();
 
@@ -17,13 +18,21 @@ app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+
+//转换request body请求区域
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//中间件 cookie
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+//Express 提供了内置的中间件 express.static 来设置静态文件
+app.use(express.static(path.join(__dirname, 'resource')));
 
 app.use('/', index);
 app.use('/users', users);
+
+app.use('/bankinfo',bank);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -7,8 +7,11 @@
  * Created by shichp on 2017/1/5.
  */
 var http = require('http');
-var url = require('url');
 var util = require('util');
+
+//var logger = require('log4js').getLogger();
+var logger = require('../../../logger');
+
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
 
@@ -19,6 +22,8 @@ http.createServer(function (req, res) {
     res.write("age：" + params.age);
 
     res.write("\n");
-//    res.end(util.inspect(url.parse(req.url, true)));
+    logger.info('request for url:' + req.url + " GET Return Success");
+
+    res.end(util.inspect(url.parse(req.url, true)));
     res.end();
 }).listen(3000);

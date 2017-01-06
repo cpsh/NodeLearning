@@ -1,0 +1,15 @@
+{
+    "appenders": [{
+        "type": "dateFile",
+        "filename": "log/nodejs/",
+        "pattern": "yyyy-MM-dd.log",
+        "alwaysIncludePattern": true,
+        "layout": {
+                "type": "pattern",
+                "pattern": "prod"
+            }
+    }],
+    "levels":{ 
+        "[all]": "DEBUG"
+    } 
+}

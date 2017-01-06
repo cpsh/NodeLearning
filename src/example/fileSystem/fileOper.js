@@ -141,7 +141,7 @@ fs.unlink('input.txt', function(err) {
 console.log('\n');
 */
 
-
+//TODO fs.mkdir操作api报错，待排查
 //fs.mkdir(path[, mode], callback) mode - 设置目录权限，默认为 0777。
 console.log("-------------创建目录----------------");
 console.log("创建目录 ./tmp/test/");

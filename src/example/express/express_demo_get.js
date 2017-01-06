@@ -35,6 +35,16 @@ app.get('/ab*cd', function(req, res) {
     res.send('正则匹配');
 });
 
+//Router parameters
+app.get('/users/:userId/books/:bookId',function (req,res) {
+    console.log('userId : ' + req.params.userId);
+    console.log('bookId : ' + req.params.bookId);
+    console.log('req.params : \n' + JSON.stringify(req.params));
+    console.log('req.query : \n' + JSON.stringify(req.query));
+//    console.log('req.param.userId : \n' + JSON.stringify(req.param('userId','default-user-id')));
+    res.send(JSON.stringify(req.params));
+})
+
 
 var server = app.listen(8081, function () {
 
